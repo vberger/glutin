@@ -64,7 +64,9 @@ fn main() {
                                         gl_generator::registry::Ns::Egl,
                                         gl_generator::Fallbacks::All,
                                         khronos_api::EGL_XML,
-                                        vec![],
+                                        vec![
+                                            "EGL_MESA_platform_gbm".to_string(),
+                                        ],
                                         "1.5", "core", &mut file).unwrap();
     }
 
