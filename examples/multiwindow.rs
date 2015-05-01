@@ -17,24 +17,24 @@ fn main() { println!("This example requires glutin to be compiled with the `wind
 #[cfg(feature = "window")]
 fn main() {
     let window1 = glutin::Window::new().unwrap();
-    let window2 = glutin::Window::new().unwrap();
-    let window3 = glutin::Window::new().unwrap();
+    //let window2 = glutin::Window::new().unwrap();
+    //let window3 = glutin::Window::new().unwrap();
 
     let t1 = thread::spawn(move || {
         run(window1, (0.0, 1.0, 0.0, 1.0));
     });
 
-    let t2 = thread::spawn(move || {
-        run(window2, (0.0, 0.0, 1.0, 1.0));
-    });
+    //let t2 = thread::spawn(move || {
+    //    run(window2, (0.0, 0.0, 1.0, 1.0));
+    //});
 
-    let t3 = thread::spawn(move || {
-        run(window3, (1.0, 0.0, 0.0, 1.0));
-    });
+    //let t3 = thread::spawn(move || {
+    //    run(window3, (1.0, 0.0, 0.0, 1.0));
+    //});
 
     let _ = t1.join();
-    let _ = t2.join();
-    let _ = t3.join();
+    //let _ = t2.join();
+    //let _ = t3.join();
 }
 
 #[cfg(feature = "window")]

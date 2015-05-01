@@ -544,10 +544,11 @@ impl Window {
         let is_fullscreen = builder.monitor.is_some();
         // creating the context
         let context = match builder.gl_version {
-            GlRequest::Latest | GlRequest::Specific(Api::OpenGl, _) | GlRequest::GlThenGles { .. } => {
+            /*GlRequest::Latest | GlRequest::Specific(Api::OpenGl, _) | GlRequest::GlThenGles { .. } => {
                 Context::Glx(try!(GlxContext::new(builder, display, window,
                                                   fb_config, visual_infos)))
-            },
+            },*/
+            GlRequest::Latest | GlRequest::Specific(Api::OpenGl, _) | GlRequest::GlThenGles { .. } |
             GlRequest::Specific(Api::OpenGlEs, _) => {
                 let libegl = unsafe { dlopen::dlopen(b"libEGL.so\0".as_ptr() as *const _, dlopen::RTLD_NOW) };
                 if libegl.is_null() {
